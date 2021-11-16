@@ -6,7 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title><?php echo $title; ?></title>
+    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>/assets/img/Kementerian-Pertanian-Logo.png" />
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url(); ?>/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

@@ -31,6 +31,18 @@
   --warning: #f6c23e;
   --danger: #e74a3b;
   --light: #f8f9fc;
+  --jagung: #17e822;
+  --kedelai: #fc0305;
+  --kacangtanah: #e4f20d;
+  --singkong: #4a08f7;
+  --ubijalar: #b304fb;
+  --kacanghijau: #34aacb;
+  --sorgum: #ff00cd;
+  --gandum: #29d6ad;
+  --talas: #faba05;
+  --ganyong: #987167;
+  --umbilain: #000000;
+  --main:#20a228;
   --dark: #5a5c69;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -67,6 +79,19 @@ body {
   color: #858796;
   text-align: left;
   background-color: #fff;
+}
+
+.masthead {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 35rem;
+  padding: 15rem 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000000 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -478,8 +503,8 @@ mark,
 }
 
 .img-fluid {
-  max-width: 100%;
-  height: auto;
+  width: auto;
+  height: 50px;
 }
 
 .img-thumbnail {
@@ -1484,7 +1509,6 @@ pre code {
 }
 
 .table {
-  width: 100%;
   margin-bottom: 1rem;
   color: #858796;
 }
@@ -6374,13 +6398,13 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #4e73df !important;
+  background-color: #208320 !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
 button.bg-primary:hover,
 button.bg-primary:focus {
-  background-color: #2653d4 !important;
+  background-color: #208320 !important;
 }
 
 .bg-secondary {
@@ -6502,7 +6526,7 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-  border-color: #4e73df !important;
+  border-color: #20a228 !important;
 }
 
 .border-secondary {
@@ -9555,11 +9579,11 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #4e73df !important;
+  color: #208320 !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
-  color: #224abe !important;
+  color: #208320 !important;
 }
 
 .text-secondary {
@@ -9624,6 +9648,50 @@ a.text-dark:hover, a.text-dark:focus {
 
 .text-muted {
   color: #858796 !important;
+}
+
+.text-jagung {
+  color: #17e822 !important;
+}
+
+.text-kedelai {
+  color: #fc0305 !important;
+}
+
+.text-kacangtanah {
+  color: #e4f20d !important;
+}
+
+.text-singkong {
+  color: #4a08f7 !important;
+}
+
+.text-ubijalar {
+  color: #b304fb !important;
+}
+
+.text-kacanghijau {
+  color: #34aacb !important;
+}
+
+.text-sorgum {
+  color: #ff00cd !important;
+}
+
+.text-gandum {
+  color: #29d6ad !important;
+}
+
+.text-talas {
+  color: #faba05 !important;
+}
+
+.text-ganyong {
+  color: #987167!important;
+}
+
+.text-umbilain {
+  color: #000000 !important;
 }
 
 .text-black-50 {
@@ -9863,7 +9931,7 @@ a:focus {
 }
 
 .bg-gradient-primary {
-  background-color: #4e73df;
+  background-color: #20a228;
   background-image: linear-gradient(180deg, #4e73df 10%, #224abe 100%);
   background-size: cover;
 }
@@ -10004,7 +10072,7 @@ a:focus {
 }
 
 .border-left-primary {
-  border-left: 0.25rem solid #4e73df !important;
+  border-left: 0.25rem solid #208320 !important;
 }
 
 .border-bottom-primary {

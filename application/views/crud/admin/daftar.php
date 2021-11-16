@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="<?= base_url(); ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
 </head>
-
-<body class="bg-gradient-primary">
+<body class="bg-primary">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-12 col-md-9">
@@ -28,11 +27,43 @@
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap" require> 
                                         </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Jabatan" require> 
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="nip" name="nip" placeholder="NIP" require> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" id="telp" name="telp" placeholder="No. Telp/HP" require> 
+                                        </div>
                                         <div class="form-group"> 
                                             <input type="text" class="form-control" id="username" name="username" placeholder="Username" require> 
                                         </div> 
                                         <div class="form-group"> 
                                             <input type="password" class="form-control" id="pass" name="pass" placeholder="Password" require> 
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <div class="form-group"> 
+                                                    <input type="text" class="form-control" id="provinsi" name="provinsi" placeholder="Provinsi" require> 
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group"> 
+                                                    <input type="text" class="form-control" id="kabkota" name="kabkota" placeholder="Kabupaten/Kota" require> 
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="form-group"> 
+                                                    <input type="text" class="form-control" id="kecamatan" name="kecamatan" placeholder="Kecamatan" require> 
+                                                </div>
+                                            </div>
                                         </div>
 										<input type="submit" name="btn_log" value="Daftar" class="btn btn-primary btn-user btn-block">
                                     </form><hr> 
