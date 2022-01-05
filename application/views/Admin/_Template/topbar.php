@@ -1,8 +1,9 @@
 <?php
 $getUser = $this->session->userdata('session_user');
-$getGrup = $this->session->userdata('session_grup');
+$getStatus = $this->session->userdata('session_status');
 $getNama = $this->session->userdata('session_nama');
 
+$data = $this->M_Admin->countDataApprove()->num_rows();
 $datakosong = $this->M_Admin->countDataKosong()->num_rows();
 $datapalawijakosong = $this->M_Admin->countDataPalawijaKosong()->num_rows();
 ?>
@@ -12,31 +13,184 @@ $datapalawijakosong = $this->M_Admin->countDataPalawijaKosong()->num_rows();
     <img class="img-fluid m-1" src="<?= base_url(); ?>/assets/img/Kementerian-Pertanian-Logo.png">
     <span class="text-white m-1">Statistik Pertanian</span>
 
+    <?php 
+        if ($getStatus=='admin') {
+            echo '<!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+        
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href='.base_url('Admin').'>
+                        <span class="mr-2 d-none d-lg-inline text-white">Dashboard</span>
+                    </a>    
+                </li>
+        
+                <!-- Statistik Pertanian -->
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-white">Statistik Pertanian</span>
+                    </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                        <h6 class="dropdown-header"> Statistik Pertanian </h6>
+                        <a class="dropdown-item text-center text-black-1000" href='.base_url('Admin/home_padi').'>SP-PADI</a>
+                        <a class="dropdown-item text-center text-black-1000" href='.base_url('Admin/home_palawija').'>SP-PALAWIJA</a>
+                    </div>
+                </li>
+        
+                <!-- Data Petugas -->
+                <li class="nav-item dropdown no-arrow mx-1">
+                    <a class="nav-link" href='.base_url('Admin/detail_data_petugas').'>
+                        <span class="mr-2 d-none d-lg-inline text-white">Data Petugas</span>
+                    </a>
+                </li>
+        
+                <!-- Approval Pendaftar-->
+                <li class="nav-item dropdown no-arrow mx-1">
+                    <a class="nav-link" href='.base_url('Admin/detail_data_approval').'>
+                        <span class="mr-2 d-none d-lg-inline text-white">Approval Pendaftar</span>
+        
+                        <!-- Notifikasi Data Kosong -->
+                        <span class="badge badge-danger badge-counter">
+                            '.$data.'
+                        </span>
+                    </a>
+                </li>
+        
+                <div class="topbar-divider d-none d-sm-block"></div>
+        
+                <!-- Nav Item - User Information -->
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-white small">'.$getNama.'</span>
+                    </a>
+                    
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href='.base_url('Admin/profile/').'>
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                    
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="Admin" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </div>
+                </li>
+            </ul>';
+        } elseif ($getStatus=='petugas') {
+            echo '<!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+        
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href='.base_url('Admin').'>
+                        <span class="mr-2 d-none d-lg-inline text-white">Dashboard</span>
+                    </a>    
+                </li>
+        
+                <!-- Laporan -->
+                <li class="nav-item dropdown no-arrow mx-1">
+                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-white">Tambah Laporan</span>
+                    </a>
+                                
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                        <h6 class="dropdown-header"> Tambah Laporan </h6>
+                        <a class="dropdown-item text-center text-black-1000" href='.base_url('Admin/tambah_statistik_padi').'>SP-PADI</a>
+                        <a class="dropdown-item text-center text-black-1000" href='.base_url('Admin/tambah_statistik_palawija').'>SP-PALAWIJA</a>
+                    </div>
+                </li>
+        
+                <!-- Statistik Pertanian -->
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-white">Statistik Pertanian</span>
+                    </a>
+                    
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+                        <h6 class="dropdown-header"> Statistik Pertanian </h6>
+                        <a class="dropdown-item text-center text-black-1000" href='.base_url('Admin/home_padi').'>SP-PADI</a>
+                        <a class="dropdown-item text-center text-black-1000" href='.base_url('Admin/home_palawija').'>SP-PALAWIJA</a>
+                    </div>
+                </li>
+        
+                <!-- Data Padi Kosong -->
+                <li class="nav-item dropdown no-arrow mx-1">
+                    <a class="nav-link" href='.base_url('Admin/detail_padi_kosong').'>
+                        <span class="mr-2 d-none d-lg-inline text-white">Data Padi Kosong</span>
+        
+                        <!-- Notifikasi Data Kosong -->
+                        <span class="badge badge-danger badge-counter">
+                            '. $datakosong .'
+                        </span>
+                    </a>
+                </li>
+        
+                <!-- Data Palawija Kosong -->
+                <li class="nav-item dropdown no-arrow mx-1">
+                    <a class="nav-link" href='.base_url('Admin/detail_palawija_kosong').'>
+                        <span class="mr-2 d-none d-lg-inline text-white">Data Palawija Kosong</span>
+        
+                        <!-- Notifikasi Data Kosong -->
+                        <span class="badge badge-danger badge-counter">
+                            '. $datapalawijakosong .'
+                        </span>
+                    </a>
+                </li>
+        
+                <div class="topbar-divider d-none d-sm-block"></div>
+        
+                <!-- Nav Item - User Information -->
+                <li class="nav-item dropdown no-arrow">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-white">'.$getNama.'</span>
+                    </a>
+                    
+                    <!-- Dropdown - User Information -->
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href='.base_url('Admin/profile/').'>
+                            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="Admin" data-toggle="modal" data-target="#logoutModal">
+                            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            Logout
+                        </a>
+                    </div>
+                </li>
+            </ul>';
+        }
+    ?>
+
     <!-- Topbar Navbar -->
-    <ul class="navbar-nav ml-auto">
+    <!-- <ul class="navbar-nav ml-auto"> -->
 
         <!-- Dashboard -->
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href='<?= base_url('Admin') ?>'>
                 <span class="mr-2 d-none d-lg-inline text-white">Dashboard</span>
             </a>    
-        </li>
+        </li> -->
 
         <!-- Laporan -->
-        <li class="nav-item dropdown no-arrow mx-1">
+        <!-- <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-white">Tambah Laporan</span>
             </a>
                         
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header"> Tambah Laporan </h6>
-                <a class="dropdown-item text-center text-black-1000" href='<?= base_url('Admin/sppadi')?>'>SP-PADI</a>
-                <a class="dropdown-item text-center text-black-1000" href='<?= base_url('Admin/sppalawija')?>'>SP-PALAWIJA</a>
+                <a class="dropdown-item text-center text-black-1000" href='<?= base_url('Admin/tambah_statistik_padi')?>'>SP-PADI</a>
+                <a class="dropdown-item text-center text-black-1000" href='<?= base_url('Admin/tambah_statistik_palawija')?>'>SP-PALAWIJA</a>
             </div>
-        </li>
+        </li> -->
 
         <!-- Statistik Pertanian -->
-        <li class="nav-item dropdown no-arrow">
+        <!-- <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-white">Statistik Pertanian</span>
             </a>
@@ -46,49 +200,32 @@ $datapalawijakosong = $this->M_Admin->countDataPalawijaKosong()->num_rows();
                 <a class="dropdown-item text-center text-black-1000" href='<?= base_url('Admin/home_padi') ?>'>SP-PADI</a>
                 <a class="dropdown-item text-center text-black-1000" href='<?= base_url('Admin/home_palawija') ?>'>SP-PALAWIJA</a>
             </div>
-        </li>
+        </li> -->
 
         <!-- Data Kosong -->
-        <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-white">Data Kosong</span>
+        <!-- <li class="nav-item dropdown no-arrow mx-1">
+            <a class="nav-link" href="<?= base_url('Admin/detail_data_kosong')?>">
+                <span class="mr-2 d-none d-lg-inline text-white">Data Kosong</span> -->
 
                 <!-- Notifikasi Data Kosong -->
-                <span class="badge badge-danger badge-counter">
+                <!-- <span class="badge badge-danger badge-counter">
                     <?= $datakosong+$datapalawijakosong ?>
                 </span>
             </a>
-            
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header"> Data Kosong </h6>
-                <?php $i=0; foreach ($kosong as $data) if ($i < 5){?>
-                <a class="dropdown-item d-flex align-items-center" href="<?= base_url('Admin/edit_data_kosong/'.$data->id_padi)?>">
-                    <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" src="<?= base_url(); ?>/assets/img/undraw_profile_1.svg" alt="">
-                        <div class="status-indicator bg-success"></div>
-                    </div>
-                    <div class="font-weight-bold">
-                        <div class="text-truncate"><?php echo $data -> admin;?></div>
-                        <div class="small text-gray-500"><?php echo $data -> kecamatan.' || '.$data -> tgl_laporan; ?></div>
-                    </div>
-                </a>
-                <?php $i +=1;} ?>
-                <a class="dropdown-item text-center small text-gray-500" href="<?= base_url('Admin/detail_data_kosong')?>">Tampilkan Lainnya</a>
-            </div>
-        </li>
+        </li> -->
 
-        <div class="topbar-divider d-none d-sm-block"></div>
+        <!-- <div class="topbar-divider d-none d-sm-block"></div> -->
 
         <!-- Nav Item - User Information -->
-        <li class="nav-item dropdown no-arrow">
+        <!-- <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-white small"><?php echo $getNama; ?></span>
                 <img class="img-profile rounded-circle" src="<?= base_url(); ?>/assets/img/undraw_profile.svg">
-            </a>
+            </a> -->
             
             <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+            <!-- <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="<?= base_url('Admin/profile/')?>">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>
@@ -108,5 +245,5 @@ $datapalawijakosong = $this->M_Admin->countDataPalawijaKosong()->num_rows();
                 </a>
             </div>
         </li>
-    </ul>
+    </ul> -->
 </nav>
